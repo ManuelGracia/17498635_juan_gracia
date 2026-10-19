@@ -1,0 +1,3 @@
+# Actividad 3 - El problema de la gestión de claves
+
+**¿Qué ocurriría si esta clave fuera una clave utilizada realmente por una organización y el archivo se publicara en un repositorio Git?** Si la clave fuera real y se publicara en Git, cualquiera con acceso al repositorio (y a una copia de los datos cifrados) podría descifrar toda la información protegida; además, borrar el archivo no basta porque queda en el historial, por lo que habría que rotar la clave, recifrar los datos y tratar el hecho como un incidente de seguridad.
