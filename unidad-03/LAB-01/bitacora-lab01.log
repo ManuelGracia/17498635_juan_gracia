@@ -1,0 +1,386 @@
+2026-11-06 21:01:25 CST ERROR:  ALTER SYSTEM no puede ser ejecutado dentro de un bloque de transacción
+2026-11-06 21:01:25 CST SENTENCIA:  ALTER SYSTEM SET logging_collector = on;
+	SELECT name, setting, pending_restart FROM pg_settings WHERE name = 'logging_collector';
+2026-11-06 21:02:34 CST LOG:  no se pudo recibir datos del cliente: unrecognized winsock error 10054
+2026-11-06 21:02:34 CST LOG:  no se pudo recibir datos del cliente: unrecognized winsock error 10054
+2026-11-06 21:04:06 CST LOG:  empezando checkpoint: time
+2026-11-06 21:04:07 CST LOG:  checkpoint completo: escritos 9 b�fers (0.1%); 0 archivos WAL a�adidos, 0 eliminados, 0 reciclados; write=0.829 s, sync=0.020 s, total=0.863 s; archivos sincronizados=9, m�s largo=0.003 s, promedio=0.003 s; distancia=8 kB, estimaci�n=8 kB; lsn=0/1ABDC80, lsn de redo=0/1ABDC48
+2026-11-06 21:05:50 CST ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:05:50 CST SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 10;
+2026-11-06 21:06:08 CST ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:06:08 CST SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 10;
+2026-11-06 21:06:11 CST ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:06:11 CST SENTENCIA:  SELECT linea FROM dba.bitacora WHERE linea ILIKE '%update%';
+2026-11-06 21:06:17 CST ERROR:  ya existe el esquema «dba»
+2026-11-06 21:06:17 CST SENTENCIA:  CREATE SCHEMA dba;
+2026-11-06 21:06:27 CST ERROR:  la relación «bitacora» ya existe
+2026-11-06 21:06:27 CST SENTENCIA:  CREATE VIEW dba.bitacora AS
+	SELECT t.n AS num, t.linea
+	FROM regexp_split_to_table(pg_read_file(pg_current_logfile()), E'\n')
+	     WITH ORDINALITY AS t(linea, n)
+	WHERE t.linea <> '';
+2026-11-06 21:06:31 CST ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:06:31 CST SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 10;
+2026-11-06 21:06:53 CST LOG:  no se pudo recibir datos del cliente: unrecognized winsock error 10054
+2026-11-06 21:07:07 CST ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:07:07 CST SENTENCIA:  -- líneas que cumplen una expresión regular
+	SELECT linea FROM dba.bitacora WHERE linea ~ '(FATAL|ERROR)';
+2026-11-06 21:09:06 CST LOG:  empezando checkpoint: time
+2026-11-06 21:09:09 CST LOG:  checkpoint completo: escritos 28 b�fers (0.2%); 0 archivos WAL a�adidos, 0 eliminados, 0 reciclados; write=2.795 s, sync=0.028 s, total=2.831 s; archivos sincronizados=24, m�s largo=0.003 s, promedio=0.002 s; distancia=111 kB, estimaci�n=111 kB; lsn=0/1AD9AF0, lsn de redo=0/1AD9AB8
+2026-11-06 21:33:02 CST LOG:  no se pudo recibir datos del cliente: unrecognized winsock error 10054
+2026-11-06 21:33:02.430 CST [23188] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:4941299 client=::1 LOG:  no se pudo recibir datos del cliente: unrecognized winsock error 10054
+2026-11-06 21:33:18.495 CST [3292] user=[desconocido] db=[desconocido] app=[desconocido] client=::1 LOG:  conexi�n recibida: host=::1 port=52150
+2026-11-06 21:33:18.507 CST [3292] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[desconocido] client=::1 LOG:  conexi�n autenticada: identidad=�u_17496835_juan_gracia� m�todo=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:33:18.507 CST [3292] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[desconocido] client=::1 LOG:  conexi�n autorizada: usuario=u_17496835_juan_gracia base_de_datos=db_17496835_juan_gracia nombre_de_aplicaci�n=pgAdmin 4 - CONN:1680091
+2026-11-06 21:34:05.979 CST [3292] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:34:05.979 CST [3292] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:34:15.913 CST [3292] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 LOG:  desconexión: duración de sesión: 0:00:57.429 usuario=u_17496835_juan_gracia base=db_17496835_juan_gracia host=::1 port=52150
+2026-11-06 21:34:15.940 CST [10340] user=[desconocido] db=[desconocido] app=[desconocido] client=::1 LOG:  conexi�n recibida: host=::1 port=50667
+2026-11-06 21:34:15.947 CST [10340] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[desconocido] client=::1 LOG:  conexi�n autenticada: identidad=�u_17496835_juan_gracia� m�todo=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:34:15.947 CST [10340] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[desconocido] client=::1 LOG:  conexi�n autorizada: usuario=u_17496835_juan_gracia base_de_datos=db_17496835_juan_gracia nombre_de_aplicaci�n=pgAdmin 4 - DB:db_17496835_juan_gracia
+2026-11-06 21:34:20.904 CST [17936] user=[desconocido] db=[desconocido] app=[desconocido] client=::1 LOG:  conexi�n recibida: host=::1 port=62560
+2026-11-06 21:34:20.912 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[desconocido] client=::1 LOG:  conexi�n autenticada: identidad=�u_17496835_juan_gracia� m�todo=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:34:20.912 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[desconocido] client=::1 LOG:  conexi�n autorizada: usuario=u_17496835_juan_gracia base_de_datos=db_17496835_juan_gracia nombre_de_aplicaci�n=pgAdmin 4 - CONN:1680091
+2026-11-06 21:34:20.926 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:34:20.926 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:34:22.412 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:34:22.412 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:34:22.983 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:34:22.983 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:34:23.148 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:34:23.148 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:38:22.023 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 LOG:  sentencia: CREATE OR REPLACE VIEW dba.bitacora AS
+	SELECT t.n AS num, t.linea
+	FROM regexp_split_to_table(
+	       convert_from(pg_read_binary_file(pg_current_logfile()), 'WIN1252'), 
+	       E'\r?\n'
+	     ) WITH ORDINALITY AS t(linea, n)
+	WHERE t.linea <> '';
+2026-11-06 21:38:22.039 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  no se puede cambiar el ordenamiento de la columna «linea» de la vista de «default» a «C»
+2026-11-06 21:38:22.039 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  CREATE OR REPLACE VIEW dba.bitacora AS
+	SELECT t.n AS num, t.linea
+	FROM regexp_split_to_table(
+	       convert_from(pg_read_binary_file(pg_current_logfile()), 'WIN1252'), 
+	       E'\r?\n'
+	     ) WITH ORDINALITY AS t(linea, n)
+	WHERE t.linea <> '';
+2026-11-06 21:39:06.397 CST [6692] user= db= app= client= LOG:  empezando checkpoint: time
+2026-11-06 21:39:06.508 CST [6692] user= db= app= client= LOG:  checkpoint completo: escritos 2 b�fers (0.0%); 0 archivos WAL a�adidos, 0 eliminados, 0 reciclados; write=0.101 s, sync=0.003 s, total=0.111 s; archivos sincronizados=2, m�s largo=0.002 s, promedio=0.002 s; distancia=0 kB, estimaci�n=100 kB; lsn=0/1AD9C68, lsn de redo=0/1AD9C30
+2026-11-06 21:43:32.117 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:43:32.117 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:43:42.696 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:43:42.696 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT * FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:43:48.721 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:43:48.721 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT * FROM dba.bitacora
+2026-11-06 21:43:55.104 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  secuencia de bytes no válida para codificación «UTF8»: 0xfa
+2026-11-06 21:43:55.104 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 SENTENCIA:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:44:12.149 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 LOG:  sentencia: ALTER SYSTEM SET lc_messages = 'C';
+2026-11-06 21:44:19.984 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 21:44:19.984 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 STATEMENT:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:44:53.524 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 21:44:53.524 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 STATEMENT:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:46:35.640 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 21:46:35.640 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 STATEMENT:  SELECT linea FROM dba.bitacora WHERE linea LIKE '%client=127.0.0.1%' ORDER BY num;
+2026-11-06 21:46:46.146 CST [19464] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=53983
+2026-11-06 21:46:46.153 CST [19464] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="u_17496835_juan_gracia" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:46:46.153 CST [19464] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=u_17496835_juan_gracia database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:1680091
+2026-11-06 21:46:46.155 CST [19464] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 LOG:  disconnection: session time: 0:00:00.012 user=u_17496835_juan_gracia database=db_17496835_juan_gracia host=::1 port=53983
+2026-11-06 21:46:46.156 CST [17936] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1680091 client=::1 LOG:  disconnection: session time: 0:12:25.261 user=u_17496835_juan_gracia database=db_17496835_juan_gracia host=::1 port=62560
+2026-11-06 21:46:47.519 CST [13444] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=60576
+2026-11-06 21:46:47.526 CST [13444] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="u_17496835_juan_gracia" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:46:47.526 CST [13444] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=u_17496835_juan_gracia database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:7482615
+2026-11-06 21:46:49.432 CST [19112] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=53978
+2026-11-06 21:46:49.439 CST [19112] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="u_17496835_juan_gracia" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:46:49.439 CST [19112] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=u_17496835_juan_gracia database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:7482615
+2026-11-06 21:46:49.440 CST [19112] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:7482615 client=::1 LOG:  disconnection: session time: 0:00:00.012 user=u_17496835_juan_gracia database=db_17496835_juan_gracia host=::1 port=53978
+2026-11-06 21:46:49.441 CST [13444] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:7482615 client=::1 LOG:  disconnection: session time: 0:00:01.926 user=u_17496835_juan_gracia database=db_17496835_juan_gracia host=::1 port=60576
+2026-11-06 21:46:58.695 CST [23928] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=57804
+2026-11-06 21:46:58.702 CST [23928] user=postgres db=postgres app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:46:58.702 CST [23928] user=postgres db=postgres app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=postgres application_name=pgAdmin 4 - DB:postgres
+2026-11-06 21:47:03.010 CST [19960] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=63806
+2026-11-06 21:47:03.013 CST [14352] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=63807
+2026-11-06 21:47:03.018 CST [19960] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:47:03.018 CST [19960] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - DB:db_17496835_juan_gracia
+2026-11-06 21:47:03.021 CST [14352] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:47:03.021 CST [14352] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - DB:db_17496835_juan_gracia
+2026-11-06 21:47:03.029 CST [19960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - DB:db_17496835_juan_gracia client=::1 LOG:  disconnection: session time: 0:00:00.022 user=postgres database=db_17496835_juan_gracia host=::1 port=63806
+2026-11-06 21:47:20.563 CST [8124] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=49808
+2026-11-06 21:47:20.573 CST [8124] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:47:20.573 CST [8124] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - DB:db_17496835_juan_gracia
+2026-11-06 21:47:23.248 CST [10340] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - DB:db_17496835_juan_gracia client=::1 LOG:  could not receive data from client: unrecognized winsock error 10054
+2026-11-06 21:47:23.248 CST [14352] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - DB:db_17496835_juan_gracia client=::1 LOG:  could not receive data from client: unrecognized winsock error 10054
+2026-11-06 21:47:23.248 CST [14352] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - DB:db_17496835_juan_gracia client=::1 LOG:  disconnection: session time: 0:00:20.238 user=postgres database=db_17496835_juan_gracia host=::1 port=63807
+2026-11-06 21:47:23.248 CST [23928] user=postgres db=postgres app=pgAdmin 4 - DB:postgres client=::1 LOG:  could not receive data from client: unrecognized winsock error 10054
+2026-11-06 21:47:23.248 CST [10340] user=u_17496835_juan_gracia db=db_17496835_juan_gracia app=pgAdmin 4 - DB:db_17496835_juan_gracia client=::1 LOG:  disconnection: session time: 0:13:07.317 user=u_17496835_juan_gracia database=db_17496835_juan_gracia host=::1 port=50667
+2026-11-06 21:47:23.248 CST [23928] user=postgres db=postgres app=pgAdmin 4 - DB:postgres client=::1 LOG:  disconnection: session time: 0:00:24.556 user=postgres database=postgres host=::1 port=57804
+2026-11-06 21:47:23.253 CST [8124] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - DB:db_17496835_juan_gracia client=::1 LOG:  could not receive data from client: unrecognized winsock error 10054
+2026-11-06 21:47:23.253 CST [8124] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - DB:db_17496835_juan_gracia client=::1 LOG:  disconnection: session time: 0:00:02.694 user=postgres database=db_17496835_juan_gracia host=::1 port=49808
+2026-11-06 21:47:38.861 CST [21616] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=56038
+2026-11-06 21:47:38.883 CST [2296] user=[unknown] db=[unknown] app=[unknown] client=127.0.0.1 LOG:  connection received: host=127.0.0.1 port=56039
+2026-11-06 21:47:39.784 CST [5324] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=64221
+2026-11-06 21:47:39.805 CST [23144] user=[unknown] db=[unknown] app=[unknown] client=127.0.0.1 LOG:  connection received: host=127.0.0.1 port=64222
+2026-11-06 21:47:49.047 CST [24888] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=54324
+2026-11-06 21:47:49.055 CST [24888] user=postgres db=postgres app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:47:49.055 CST [24888] user=postgres db=postgres app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=postgres application_name=pgAdmin 4 - DB:postgres
+2026-11-06 21:47:49.233 CST [12996] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=58925
+2026-11-06 21:47:49.233 CST [4852] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=58926
+2026-11-06 21:47:49.241 CST [12996] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:47:49.241 CST [12996] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - DB:db_17496835_juan_gracia
+2026-11-06 21:47:49.241 CST [4852] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:47:49.241 CST [4852] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - DB:db_17496835_juan_gracia
+2026-11-06 21:47:49.263 CST [12996] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - DB:db_17496835_juan_gracia client=::1 LOG:  disconnection: session time: 0:00:00.035 user=postgres database=db_17496835_juan_gracia host=::1 port=58925
+2026-11-06 21:47:54.252 CST [18960] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=51157
+2026-11-06 21:47:54.259 CST [18960] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 21:47:54.259 CST [18960] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:1026990
+2026-11-06 21:48:04.033 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 21:48:04.033 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 STATEMENT:  SELECT num, linea FROM dba.bitacora ORDER BY num DESC LIMIT 6;
+2026-11-06 21:57:17.315 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  statement: REVOKE UPDATE ON clientes FROM soporte_ana;
+	GRANT UPDATE ON clientes TO app_ventas;
+	ALTER TABLE clientes ADD COLUMN segmento VARCHAR(20);
+2026-11-06 21:57:17.316 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 ERROR:  role "soporte_ana" does not exist
+2026-11-06 21:57:17.316 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 STATEMENT:  REVOKE UPDATE ON clientes FROM soporte_ana;
+	GRANT UPDATE ON clientes TO app_ventas;
+	ALTER TABLE clientes ADD COLUMN segmento VARCHAR(20);
+2026-11-06 21:57:50.036 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  statement: REVOKE UPDATE ON clientes FROM soporte_ana;
+2026-11-06 21:57:50.036 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 ERROR:  role "soporte_ana" does not exist
+2026-11-06 21:57:50.036 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 STATEMENT:  REVOKE UPDATE ON clientes FROM soporte_ana;
+2026-11-06 21:57:53.004 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  statement: GRANT UPDATE ON clientes TO app_ventas;
+2026-11-06 21:57:53.004 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 ERROR:  role "app_ventas" does not exist
+2026-11-06 21:57:53.004 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 STATEMENT:  GRANT UPDATE ON clientes TO app_ventas;
+2026-11-06 21:57:55.789 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  statement: ALTER TABLE clientes ADD COLUMN segmento VARCHAR(20);
+2026-11-06 21:58:53.487 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  statement: DROP ROLE rol_temporal;
+2026-11-06 21:58:53.487 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 ERROR:  role "rol_temporal" does not exist
+2026-11-06 21:58:53.487 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 STATEMENT:  DROP ROLE rol_temporal;
+2026-11-06 21:59:01.867 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 21:59:01.867 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 STATEMENT:  SELECT linea FROM dba.bitacora WHERE linea LIKE '%statement:%' ORDER BY num;
+2026-11-06 21:59:06.112 CST [6692] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-06 21:59:06.666 CST [6692] user= db= app= client= LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.539 s, sync=0.008 s, total=0.554 s; sync files=5, longest=0.003 s, average=0.002 s; distance=32 kB, estimate=93 kB; lsn=0/1AE1D08, redo lsn=0/1AE1CD0
+2026-11-06 22:13:06.980 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  statement: REVOKE UPDATE ON clientes FROM soporte_ana;
+2026-11-06 22:13:06.980 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 ERROR:  role "soporte_ana" does not exist
+2026-11-06 22:13:06.980 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 STATEMENT:  REVOKE UPDATE ON clientes FROM soporte_ana;
+2026-11-06 22:13:11.566 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  statement: REVOKE UPDATE ON clientes FROM soporte_ana;
+	GRANT UPDATE ON clientes TO app_ventas;
+2026-11-06 22:13:11.566 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 ERROR:  role "soporte_ana" does not exist
+2026-11-06 22:13:11.566 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 STATEMENT:  REVOKE UPDATE ON clientes FROM soporte_ana;
+	GRANT UPDATE ON clientes TO app_ventas;
+2026-11-06 22:25:28.847 CST [12324] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=63232
+2026-11-06 22:25:28.854 CST [12324] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 22:25:28.854 CST [12324] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:1026990
+2026-11-06 22:25:28.856 CST [12324] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  disconnection: session time: 0:00:00.012 user=postgres database=db_17496835_juan_gracia host=::1 port=63232
+2026-11-06 22:25:28.856 CST [18960] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1026990 client=::1 LOG:  disconnection: session time: 0:37:34.609 user=postgres database=db_17496835_juan_gracia host=::1 port=51157
+2026-11-06 22:25:30.562 CST [19756] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=57662
+2026-11-06 22:25:30.569 CST [19756] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 22:25:30.569 CST [19756] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:8996098
+2026-11-06 22:25:33.445 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 22:25:33.445 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 STATEMENT:  SELECT linea FROM dba.bitacora WHERE linea LIKE '%user=app_ventas%' ORDER BY num DESC LIMIT 3;
+2026-11-06 22:25:44.180 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: ALTER SYSTEM SET log_statement = 'mod';
+2026-11-06 22:26:21.330 CST [17024] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=65360
+2026-11-06 22:26:21.340 CST [17024] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 22:26:21.340 CST [17024] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:8996098
+2026-11-06 22:27:01.540 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 22:27:01.540 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 STATEMENT:  SELECT linea FROM dba.bitacora
+	WHERE linea LIKE '%log_statement%' OR linea LIKE '%user=app_ventas%statement:%'
+	ORDER BY num;
+2026-11-06 22:30:19.367 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: CREATE TABLE clientes (
+	    id BIGSERIAL PRIMARY KEY,
+	    nombre VARCHAR(120) NOT NULL,
+	    correo VARCHAR(150) NOT NULL,
+	    telefono VARCHAR(20),
+	    rfc VARCHAR(13),
+	    edad INTEGER,
+	    ciudad VARCHAR(80),
+	    codigo_postal VARCHAR(10),
+	    fecha_alta DATE DEFAULT CURRENT_DATE
+	);
+2026-11-06 22:30:19.370 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 ERROR:  relation "clientes" already exists
+2026-11-06 22:30:19.370 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 STATEMENT:  CREATE TABLE clientes (
+	    id BIGSERIAL PRIMARY KEY,
+	    nombre VARCHAR(120) NOT NULL,
+	    correo VARCHAR(150) NOT NULL,
+	    telefono VARCHAR(20),
+	    rfc VARCHAR(13),
+	    edad INTEGER,
+	    ciudad VARCHAR(80),
+	    codigo_postal VARCHAR(10),
+	    fecha_alta DATE DEFAULT CURRENT_DATE
+	);
+2026-11-06 22:30:26.540 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: CREATE ROLE app_ventas LOGIN;
+2026-11-06 22:30:28.534 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: CREATE ROLE soporte_ana LOGIN;
+2026-11-06 22:30:30.791 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: ALTER ROLE app_ventas WITH PASSWORD 'Ventas_Practica_2026';
+2026-11-06 22:30:33.052 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: ALTER ROLE soporte_ana WITH PASSWORD 'Soporte_Practica_2026';
+2026-11-06 22:30:37.345 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: GRANT SELECT, UPDATE ON clientes TO app_ventas;
+2026-11-06 22:30:39.701 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: GRANT SELECT ON clientes TO soporte_ana;
+2026-11-06 22:32:57.077 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: DROP ROLE soporte_ana;
+2026-11-06 22:32:57.077 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 ERROR:  role "soporte_ana" cannot be dropped because some objects depend on it
+2026-11-06 22:32:57.077 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 DETAIL:  privileges for table clientes
+2026-11-06 22:32:57.077 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 STATEMENT:  DROP ROLE soporte_ana;
+2026-11-06 22:33:07.396 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 22:33:07.396 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 STATEMENT:  SELECT linea FROM dba.bitacora
+	WHERE linea ~ '(ERROR|STATEMENT|DETAIL):  (permission|privileges|role|DELETE|DROP)'
+	ORDER BY num;
+2026-11-06 22:34:06.482 CST [6692] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-06 22:34:08.659 CST [6692] user= db= app= client= LOG:  checkpoint complete: wrote 21 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.149 s, sync=0.021 s, total=2.177 s; sync files=21, longest=0.002 s, average=0.001 s; distance=77 kB, estimate=92 kB; lsn=0/1AF5200, redo lsn=0/1AF51C8
+2026-11-06 22:37:59.381 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 ERROR:  invalid byte sequence for encoding "UTF8": 0xfa
+2026-11-06 22:37:59.381 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 STATEMENT:  SELECT linea FROM dba.bitacora WHERE linea LIKE '%[189]%' ORDER BY num;
+2026-11-06 22:40:31.446 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: DROP VIEW dba.bitacora;
+2026-11-06 22:40:35.342 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  statement: CREATE VIEW dba.bitacora AS
+	SELECT t.n AS num, 
+	       t.linea
+	FROM regexp_split_to_table(
+	       convert_from(pg_read_binary_file(pg_current_logfile()), 'WIN1252'), 
+	       E'\n'
+	     ) WITH ORDINALITY AS t(linea, n)
+	WHERE t.linea <> '';
+2026-11-06 22:41:04.482 CST [17024] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  could not receive data from client: unrecognized winsock error 10054
+2026-11-06 22:41:04.482 CST [17024] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  disconnection: session time: 0:14:43.155 user=postgres database=db_17496835_juan_gracia host=::1 port=65360
+2026-11-06 22:44:06.671 CST [6692] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-06 22:44:08.939 CST [6692] user= db= app= client= LOG:  checkpoint complete: wrote 23 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=2.240 s, sync=0.022 s, total=2.269 s; sync files=18, longest=0.003 s, average=0.002 s; distance=120 kB, estimate=120 kB; lsn=0/1B13208, redo lsn=0/1B131D0
+2026-11-06 22:44:09.589 CST [16092] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=53664
+2026-11-06 22:44:09.596 CST [16092] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 22:44:09.597 CST [16092] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:5321986
+2026-11-06 22:44:13.059 CST [16092] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:5321986 client=::1 LOG:  statement: CREATE SCHEMA auditoria;
+2026-11-06 22:44:15.579 CST [16092] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:5321986 client=::1 LOG:  statement: REVOKE ALL ON SCHEMA auditoria FROM PUBLIC;
+2026-11-06 22:44:19.848 CST [16092] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:5321986 client=::1 LOG:  statement: CREATE TABLE auditoria.cambios_clientes (
+	    id_evento        BIGSERIAL PRIMARY KEY,
+	    momento          TIMESTAMPTZ NOT NULL DEFAULT now(),
+	    usuario_sesion   TEXT        NOT NULL DEFAULT session_user,
+	    usuario_efectivo TEXT        NOT NULL DEFAULT current_user,
+	    aplicacion       TEXT        DEFAULT current_setting('application_name'),
+	    ip_cliente       INET        DEFAULT inet_client_addr(),
+	    operacion        TEXT        NOT NULL,
+	    id_cliente       BIGINT,
+	    valores_antes    JSONB,
+	    valores_despues  JSONB
+	);
+2026-11-06 22:49:06.944 CST [6692] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-06 22:49:10.880 CST [6692] user= db= app= client= LOG:  checkpoint complete: wrote 39 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.892 s, sync=0.038 s, total=3.937 s; sync files=37, longest=0.003 s, average=0.002 s; distance=165 kB, estimate=165 kB; lsn=0/1B3C698, redo lsn=0/1B3C660
+2026-11-06 22:58:40.407 CST [1464] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=64423
+2026-11-06 22:58:40.415 CST [1464] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 22:58:40.415 CST [1464] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:5321986
+2026-11-06 22:58:40.417 CST [1464] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:5321986 client=::1 LOG:  disconnection: session time: 0:00:00.013 user=postgres database=db_17496835_juan_gracia host=::1 port=64423
+2026-11-06 22:58:40.417 CST [19756] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8996098 client=::1 LOG:  disconnection: session time: 0:33:09.859 user=postgres database=db_17496835_juan_gracia host=::1 port=57662
+2026-11-06 22:58:41.442 CST [4344] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=52737
+2026-11-06 22:58:41.449 CST [4344] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 22:58:41.449 CST [4344] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:5321986
+2026-11-06 22:58:41.450 CST [4344] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:5321986 client=::1 LOG:  disconnection: session time: 0:00:00.013 user=postgres database=db_17496835_juan_gracia host=::1 port=52737
+2026-11-06 22:58:41.451 CST [16092] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:5321986 client=::1 LOG:  disconnection: session time: 0:14:31.866 user=postgres database=db_17496835_juan_gracia host=::1 port=53664
+2026-11-06 22:58:43.006 CST [14864] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=56361
+2026-11-06 22:58:43.013 CST [14864] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 22:58:43.013 CST [14864] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:7493807
+2026-11-06 22:58:55.299 CST [14864] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:7493807 client=::1 LOG:  statement: CREATE OR REPLACE FUNCTION auditoria.registrar_cambio_cliente()
+	RETURNS trigger
+	LANGUAGE plpgsql
+	SECURITY DEFINER
+	SET search_path = pg_catalog, public
+	AS $$
+	BEGIN
+	    IF TG_OP = 'INSERT' THEN
+	        INSERT INTO auditoria.cambios_clientes (operacion, id_cliente, valores_despues)
+	        VALUES (TG_OP, NEW.id, to_jsonb(NEW));
+	        RETURN NEW;
+	    ELSIF TG_OP = 'UPDATE' THEN
+	        INSERT INTO auditoria.cambios_clientes (operacion, id_cliente, valores_antes, valores_despues)
+	        VALUES (TG_OP, NEW.id, to_jsonb(OLD), to_jsonb(NEW));
+	        RETURN NEW;
+	    ELSIF TG_OP = 'DELETE' THEN
+	        INSERT INTO auditoria.cambios_clientes (operacion, id_cliente, valores_antes)
+	        VALUES (TG_OP, OLD.id, to_jsonb(OLD));
+	        RETURN OLD;
+	    END IF;
+	    RETURN NULL;
+	END;
+	$$;
+2026-11-06 22:58:59.206 CST [14864] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:7493807 client=::1 LOG:  statement: REVOKE ALL ON FUNCTION auditoria.registrar_cambio_cliente() FROM PUBLIC;
+2026-11-06 22:59:04.672 CST [14864] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:7493807 client=::1 LOG:  statement: CREATE TRIGGER trg_auditoria_clientes
+	AFTER INSERT OR UPDATE OR DELETE ON clientes
+	FOR EACH ROW EXECUTE FUNCTION auditoria.registrar_cambio_cliente();
+2026-11-06 22:59:06.888 CST [6692] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-06 22:59:08.570 CST [6692] user= db= app= client= LOG:  checkpoint complete: wrote 17 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.657 s, sync=0.019 s, total=1.682 s; sync files=14, longest=0.003 s, average=0.002 s; distance=73 kB, estimate=156 kB; lsn=0/1B4EDB8, redo lsn=0/1B4ED80
+2026-11-06 23:04:35.467 CST [8016] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=59421
+2026-11-06 23:04:35.475 CST [8016] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:04:35.475 CST [8016] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:8296258
+2026-11-06 23:04:39.988 CST [8016] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 ERROR:  syntax error at or near "\" at character 1
+2026-11-06 23:04:39.988 CST [8016] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 STATEMENT:  \x
+	SELECT id_evento, momento, usuario_sesion, usuario_efectivo, aplicacion, ip_cliente, operacion, id_cliente
+	FROM auditoria.cambios_clientes ORDER BY id_evento;
+	\x
+2026-11-06 23:05:03.452 CST [2692] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=49794
+2026-11-06 23:05:03.463 CST [2692] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:05:03.463 CST [2692] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:8296258
+2026-11-06 23:05:12.359 CST [2692] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 LOG:  could not receive data from client: unrecognized winsock error 10054
+2026-11-06 23:05:12.359 CST [2692] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 LOG:  disconnection: session time: 0:00:08.911 user=postgres database=db_17496835_juan_gracia host=::1 port=49794
+2026-11-06 23:05:49.128 CST [16120] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=57590
+2026-11-06 23:05:49.139 CST [16120] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:05:49.139 CST [16120] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:8296258
+2026-11-06 23:07:24.516 CST [16120] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 ERROR:  syntax error at or near "clear" at character 1
+2026-11-06 23:07:24.516 CST [16120] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 STATEMENT:  clear
+	cls
+	SELECT id_evento, momento, usuario_sesion, usuario_efectivo, aplicacion, ip_cliente, operacion, id_cliente FROM auditoria.cambios_clientes ORDER BYid_evento;
+2026-11-06 23:07:30.456 CST [16120] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 ERROR:  syntax error at or near "BYid_evento" at character 146
+2026-11-06 23:07:30.456 CST [16120] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 STATEMENT:  SELECT id_evento, momento, usuario_sesion, usuario_efectivo, aplicacion, ip_cliente, operacion, id_cliente FROM auditoria.cambios_clientes ORDER BYid_evento;
+2026-11-06 23:07:53.723 CST [16120] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 LOG:  could not receive data from client: unrecognized winsock error 10054
+2026-11-06 23:07:53.723 CST [16120] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 LOG:  disconnection: session time: 0:02:04.598 user=postgres database=db_17496835_juan_gracia host=::1 port=57590
+2026-11-06 23:09:53.068 CST [3584] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=54187
+2026-11-06 23:09:53.075 CST [3584] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:09:53.075 CST [3584] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:8296258
+2026-11-06 23:09:53.077 CST [3584] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 LOG:  disconnection: session time: 0:00:00.014 user=postgres database=db_17496835_juan_gracia host=::1 port=54187
+2026-11-06 23:09:53.077 CST [14864] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:7493807 client=::1 LOG:  disconnection: session time: 0:11:10.076 user=postgres database=db_17496835_juan_gracia host=::1 port=56361
+2026-11-06 23:09:58.029 CST [4116] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=49826
+2026-11-06 23:09:58.037 CST [4116] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:09:58.037 CST [4116] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:1050237
+2026-11-06 23:09:58.525 CST [26284] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=61144
+2026-11-06 23:09:58.532 CST [26284] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:09:58.532 CST [26284] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:823365
+2026-11-06 23:09:59.021 CST [12036] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=62305
+2026-11-06 23:09:59.028 CST [12036] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:09:59.028 CST [12036] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:5339310
+2026-11-06 23:09:59.480 CST [17880] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=60300
+2026-11-06 23:09:59.488 CST [17880] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:09:59.488 CST [17880] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:546821
+2026-11-06 23:10:00.144 CST [20596] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=60065
+2026-11-06 23:10:00.152 CST [20596] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:10:00.152 CST [20596] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:2757879
+2026-11-06 23:16:41.516 CST [20252] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=58771
+2026-11-06 23:16:41.524 CST [20252] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:16:41.524 CST [20252] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:2757879
+2026-11-06 23:16:41.526 CST [20252] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:2757879 client=::1 LOG:  disconnection: session time: 0:00:00.013 user=postgres database=db_17496835_juan_gracia host=::1 port=58771
+2026-11-06 23:16:41.527 CST [4116] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:1050237 client=::1 LOG:  disconnection: session time: 0:06:43.502 user=postgres database=db_17496835_juan_gracia host=::1 port=49826
+2026-11-06 23:16:42.938 CST [6640] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=59637
+2026-11-06 23:16:42.949 CST [6640] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:16:42.949 CST [6640] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:2757879
+2026-11-06 23:16:42.951 CST [6640] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:2757879 client=::1 LOG:  disconnection: session time: 0:00:00.018 user=postgres database=db_17496835_juan_gracia host=::1 port=59637
+2026-11-06 23:16:42.952 CST [26284] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:823365 client=::1 LOG:  disconnection: session time: 0:06:44.431 user=postgres database=db_17496835_juan_gracia host=::1 port=61144
+2026-11-06 23:16:43.456 CST [3276] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=58166
+2026-11-06 23:16:43.463 CST [3276] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:16:43.463 CST [3276] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:2757879
+2026-11-06 23:16:43.464 CST [3276] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:2757879 client=::1 LOG:  disconnection: session time: 0:00:00.012 user=postgres database=db_17496835_juan_gracia host=::1 port=58166
+2026-11-06 23:16:43.465 CST [12036] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:5339310 client=::1 LOG:  disconnection: session time: 0:06:44.448 user=postgres database=db_17496835_juan_gracia host=::1 port=62305
+2026-11-06 23:16:44.123 CST [15160] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=50793
+2026-11-06 23:16:44.130 CST [15160] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:16:44.130 CST [15160] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:2757879
+2026-11-06 23:16:44.132 CST [15160] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:2757879 client=::1 LOG:  disconnection: session time: 0:00:00.013 user=postgres database=db_17496835_juan_gracia host=::1 port=50793
+2026-11-06 23:16:44.133 CST [17880] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:546821 client=::1 LOG:  disconnection: session time: 0:06:44.657 user=postgres database=db_17496835_juan_gracia host=::1 port=60300
+2026-11-06 23:16:44.573 CST [25636] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=61029
+2026-11-06 23:16:44.580 CST [25636] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:16:44.580 CST [25636] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:2757879
+2026-11-06 23:16:44.582 CST [25636] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:2757879 client=::1 LOG:  disconnection: session time: 0:00:00.012 user=postgres database=db_17496835_juan_gracia host=::1 port=61029
+2026-11-06 23:16:44.582 CST [20596] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:2757879 client=::1 LOG:  disconnection: session time: 0:06:44.442 user=postgres database=db_17496835_juan_gracia host=::1 port=60065
+2026-11-06 23:16:44.949 CST [12324] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=58389
+2026-11-06 23:16:44.956 CST [12324] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:16:44.956 CST [12324] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:2757879
+2026-11-06 23:16:44.958 CST [12324] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:2757879 client=::1 LOG:  disconnection: session time: 0:00:00.013 user=postgres database=db_17496835_juan_gracia host=::1 port=58389
+2026-11-06 23:16:44.958 CST [8016] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:8296258 client=::1 LOG:  disconnection: session time: 0:12:09.495 user=postgres database=db_17496835_juan_gracia host=::1 port=59421
+2026-11-06 23:27:03.487 CST [17940] user=[unknown] db=[unknown] app=[unknown] client=::1 LOG:  connection received: host=::1 port=55600
+2026-11-06 23:27:03.494 CST [17940] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authenticated: identity="postgres" method=scram-sha-256 (C:/Program Files/PostgreSQL/16/data/pg_hba.conf:117)
+2026-11-06 23:27:03.494 CST [17940] user=postgres db=db_17496835_juan_gracia app=[unknown] client=::1 LOG:  connection authorized: user=postgres database=db_17496835_juan_gracia application_name=pgAdmin 4 - CONN:3123446
+2026-11-06 23:27:08.625 CST [17940] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:3123446 client=::1 LOG:  statement: INSERT INTO clientes (nombre, correo, rfc, edad, ciudad, codigo_postal)
+	VALUES ('Pedro Ruiz', 'pedro.ruiz@example.test', 'RUPE950101AAA', 30, 'Guasave', '81000');
+2026-11-06 23:27:11.997 CST [17940] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:3123446 client=::1 LOG:  statement: DELETE FROM clientes WHERE nombre = 'Pedro Ruiz';
+2026-11-06 23:29:06.616 CST [6692] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-06 23:29:08.465 CST [6692] user= db= app= client= LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.643 s, sync=0.199 s, total=1.849 s; sync files=15, longest=0.066 s, average=0.014 s; distance=2 kB, estimate=140 kB; lsn=0/1B4F8A8, redo lsn=0/1B4F870
+2026-11-06 23:30:09.018 CST [17940] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:3123446 client=::1 LOG:  statement: ALTER TABLE clientes DISABLE TRIGGER trg_auditoria_clientes;
+2026-11-06 23:30:12.123 CST [17940] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:3123446 client=::1 LOG:  statement: UPDATE clientes SET rfc = 'GAMA780912GHI' WHERE id = 3;
+2026-11-06 23:30:15.577 CST [17940] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:3123446 client=::1 LOG:  statement: ALTER TABLE clientes ENABLE TRIGGER trg_auditoria_clientes;
+2026-11-06 23:33:15.514 CST [17940] user=postgres db=db_17496835_juan_gracia app=pgAdmin 4 - CONN:3123446 client=::1 LOG:  statement: UPDATE clientes SET segmento = 'regular';
+2026-11-06 23:34:06.468 CST [6692] user= db= app= client= LOG:  checkpoint starting: time
+2026-11-06 23:34:07.024 CST [6692] user= db= app= client= LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.543 s, sync=0.006 s, total=0.556 s; sync files=6, longest=0.002 s, average=0.001 s; distance=7 kB, estimate=127 kB; lsn=0/1B51788, redo lsn=0/1B51750
