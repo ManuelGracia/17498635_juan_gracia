@@ -1,0 +1,101 @@
+[
+  {
+    "op": "update",
+    "ns": "comercial.clientes",
+    "command": {
+      "q": {
+        "_id": 1
+      },
+      "u": {
+        "$set": {
+          "telefono": "6670000000"
+        }
+      }
+    },
+    "ts": {
+      "$date": "2026-11-15T07:08:19.955Z"
+    },
+    "client": "127.0.0.1",
+    "appName": "app-ventas-web",
+    "user": "app_ventas@comercial"
+  },
+  {
+    "op": "command",
+    "ns": "comercial.system.profile",
+    "command": {},
+    "ts": {
+      "$date": "2026-11-15T07:23:01.818Z"
+    },
+    "client": "127.0.0.1",
+    "appName": "MongoDB Compass",
+    "user": "admin@admin"
+  },
+  {
+    "op": "command",
+    "ns": "comercial.system.profile",
+    "command": {},
+    "ts": {
+      "$date": "2026-11-15T07:23:12.160Z"
+    },
+    "client": "127.0.0.1",
+    "appName": "MongoDB Compass",
+    "user": "admin@admin"
+  },
+  {
+    "op": "query",
+    "ns": "comercial.clientes",
+    "command": {},
+    "ts": {
+      "$date": "2026-11-15T07:32:21.567Z"
+    },
+    "client": "127.0.0.1",
+    "appName": "app-ventas-web",
+    "user": "app_ventas@comercial"
+  },
+  {
+    "op": "update",
+    "ns": "comercial.clientes",
+    "command": {
+      "q": {
+        "_id": 3
+      },
+      "u": {
+        "$set": {
+          "rfc": "GAMA780912XYZ"
+        }
+      }
+    },
+    "ts": {
+      "$date": "2026-11-15T07:32:21.569Z"
+    },
+    "client": "127.0.0.1",
+    "appName": "app-ventas-web",
+    "user": "app_ventas@comercial"
+  },
+  {
+    "op": "remove",
+    "ns": "comercial.clientes",
+    "command": {
+      "q": {
+        "_id": 2
+      }
+    },
+    "ts": {
+      "$date": "2026-11-15T07:32:21.570Z"
+    },
+    "client": "127.0.0.1",
+    "appName": "app-ventas-web",
+    "user": "app_ventas@comercial"
+  },
+  {
+    "op": "query",
+    "ns": "comercial.system.profile",
+    "command": {},
+    "ts": {
+      "$date": "2026-11-15T07:32:32.275Z"
+    },
+    "client": "127.0.0.1",
+    "appName": "MongoDB Compass",
+    "user": "admin@admin"
+  }
+]
